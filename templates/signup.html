@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Login</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="{% static "vendor/bootstrap/css/bootstrap.min.css"%}" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static "C:/SI_project/PROJECT/site_de_collaboration/templates/vendor/fontawesome-free/css/all.min.css"%}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static "C:/SI_project/PROJECT/site_de_collaboration/templates/css/sb-admin.css"%}" rel="stylesheet">
+
+  </head>
+
+  <body >
+
+    <div class="container">
+      <div class="modal-dialog">
+        {% block content %}
+          <h2>Sign up</h2>
+          <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+        
+                <small style="color: grey">{{ field.help_text }}</small>
+        
+                {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+                {% endfor %}
+              </p>
+            {% endfor %}
+            <button type="submit">Sign up</button>
+          </form>
+        {% endblock %}
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static "C:/SI_project/PROJECT/site_de_collaboration/templates/vendor/jquery/jquery.min.js"%}"></script>
+    <script src="{% static "C:/SI_project/PROJECT/site_de_collaboration/templates/vendor/bootstrap/js/bootstrap.bundle.min.js"%}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src={% static "C:/SI_project/PROJECT/site_de_collaboration/templates/vendor/jquery-easing/jquery.easing.min.js"%}></script>
+
+  </body>
+
+</html>
+
